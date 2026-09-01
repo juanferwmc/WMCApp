@@ -11,13 +11,6 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
-try:
-    test = supabase.table("pruebas").select("*").limit(1).execute()
-    st.write("SELECT funciona:", test.data)
-except Exception as e:
-    st.error("SELECT falló:")
-    st.exception(e)
-
 # -----------------------------
 # INTERFAZ
 # -----------------------------
