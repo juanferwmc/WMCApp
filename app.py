@@ -1,29 +1,15 @@
 import streamlit as st
-import sqlite3
+from supabase import create_client
 from datetime import datetime
 
 # -----------------------------
 # BASE DE DATOS
 # -----------------------------
 
-conn = sqlite3.connect("pruebas.db")
-c = conn.cursor()
-
-c.execute("""
-    CREATE TABLE IF NOT EXISTS pruebas (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        planta TEXT,
-        maquina TEXT,
-        nombre TEXT,
-        producto TEXT,
-        turno TEXT,
-        peso REAL,
-        fecha_hora TEXT
-    )
-""")
-
-conn.commit()
-
+supabase = create_client(
+    st.secrets["SUPABASE_URL"],
+    st.secrets["SUPABASE_KEY"]
+)
 
 # -----------------------------
 # INTERFAZ
@@ -58,27 +44,16 @@ if st.button("Guardar"):
 
     fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    c.execute("""
-        INSERT INTO pruebas
-        (planta, maquina, nombre, producto, turno, peso, fecha_hora)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (
-        planta,
-        maquina,
-        nombre,
-        producto,
-        turno,
-        peso,
-        fecha_hora
-    ))
-
-    conn.commit()
+    supabase.table("pruebas").insert({
+        "planta": planta,
+        "maquina": maquina,
+        "nombre": nombre,
+        "producto": producto,
+        "turno": turno,
+        "peso": peso,
+        "fecha_hora": fecha_hora
+    }).execute()
 
     st.success("Datos guardados correctamente.")
-
-st.subheader("Registros guardados")
-
-c.execute("SELECT * FROM pruebas ORDER BY id DESC")
-registros = c.fetchall()
 
 st.dataframe(registros)
