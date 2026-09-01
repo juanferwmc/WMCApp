@@ -75,3 +75,10 @@ if st.button("Guardar"):
     conn.commit()
 
     st.success("Datos guardados correctamente.")
+
+st.subheader("Registros guardados")
+
+c.execute("SELECT * FROM pruebas ORDER BY id DESC")
+registros = c.fetchall()
+
+st.dataframe(registros)
