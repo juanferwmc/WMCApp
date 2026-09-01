@@ -12,10 +12,10 @@ supabase = create_client(
 )
 
 try:
-    result = supabase.rpc("get_current_role").execute()
-    st.write("Rol de Supabase:", result.data)
+    test = supabase.table("pruebas").select("*").limit(1).execute()
+    st.write("SELECT funciona:", test.data)
 except Exception as e:
-    st.error("Error obteniendo rol:")
+    st.error("SELECT falló:")
     st.exception(e)
 
 # -----------------------------
