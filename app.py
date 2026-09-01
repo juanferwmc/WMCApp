@@ -55,3 +55,8 @@ if st.button("Guardar"):
     }).execute()
 
     st.success("Datos guardados correctamente.")
+    st.write(response)
+
+except Exception as e:
+    st.error("Error al guardar:")
+    st.exception(e)
