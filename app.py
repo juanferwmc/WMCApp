@@ -11,6 +11,9 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
+st.write("URL:", st.secrets["SUPABASE_URL"])
+st.write("Key type:", st.secrets["SUPABASE_KEY"][:10])
+
 # -----------------------------
 # INTERFAZ
 # -----------------------------
