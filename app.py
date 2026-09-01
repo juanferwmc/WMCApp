@@ -53,5 +53,3 @@ if st.button("Guardar Registro"):
     }).execute()
 
     st.success("Registros Guardados")
-    st.write(result.data)
-
