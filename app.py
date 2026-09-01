@@ -44,19 +44,20 @@ if st.button("Guardar"):
 
     fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    supabase.table("pruebas").insert({
-        "planta": planta,
-        "maquina": maquina,
-        "nombre": nombre,
-        "producto": producto,
-        "turno": turno,
-        "peso": peso,
-        "fecha_hora": fecha_hora
-    }).execute()
+    try:
+        response = supabase.table("pruebas").insert({
+            "planta": planta,
+            "maquina": maquina,
+            "nombre": nombre,
+            "producto": producto,
+            "turno": turno,
+            "peso": peso,
+            "fecha_hora": fecha_hora
+        }).execute()
 
-    st.success("Datos guardados correctamente.")
-    st.write(response)
+        st.success("Datos guardados correctamente.")
+        st.write(response)
 
-except Exception as e:
-    st.error("Error al guardar:")
-    st.exception(e)
+    except Exception as e:
+        st.error("Error al guardar:")
+        st.exception(e)
