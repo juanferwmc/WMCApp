@@ -42,24 +42,22 @@ peso = st.number_input(
 
 st.write("Supabase conectado correctamente")
 
-if st.button("Guardar"):
-
-    fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+if st.button("TEST SUPABASE"):
 
     try:
-        response = supabase.table("pruebas").insert({
-            "planta": planta,
-            "maquina": maquina,
-            "nombre": nombre,
-            "producto": producto,
-            "turno": turno,
-            "peso": peso,
-            "fecha_hora": fecha_hora
+        result = supabase.table("pruebas").insert({
+            "planta": "TX",
+            "maquina": "TEST",
+            "nombre": "PRUEBA",
+            "producto": "TEST",
+            "turno": "Day",
+            "peso": 100,
+            "fecha_hora": datetime.now().isoformat()
         }).execute()
 
-        st.success("Datos guardados correctamente.")
-        st.write(response)
+        st.success("INSERT FUNCIONÓ")
+        st.write(result.data)
 
     except Exception as e:
-        st.error("Error al guardar:")
+        st.error("INSERT FALLÓ")
         st.exception(e)
