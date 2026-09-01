@@ -1,6 +1,7 @@
 import streamlit as st
 from supabase import create_client
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 # -----------------------------
 # BASE DE DATOS
