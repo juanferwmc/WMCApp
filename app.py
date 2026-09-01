@@ -42,6 +42,10 @@ peso = st.number_input(
 
 if st.button("Guardar Registro"):
 
+    fecha_hora = datetime.now(
+        ZoneInfo("America/Chicago")
+    ).strftime("%Y-%m-%d %H:%M:%S")
+    
     result = supabase.table("pruebas").insert({
         "planta": planta,
         "maquina": maquina,
