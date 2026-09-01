@@ -55,5 +55,3 @@ if st.button("Guardar"):
     }).execute()
 
     st.success("Datos guardados correctamente.")
-
-st.dataframe(registros)
