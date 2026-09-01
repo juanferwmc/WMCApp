@@ -11,8 +11,12 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
-st.write("URL:", st.secrets["SUPABASE_URL"])
-st.write("Key type:", st.secrets["SUPABASE_KEY"][:10])
+try:
+    result = supabase.rpc("get_current_role").execute()
+    st.write("Rol de Supabase:", result.data)
+except Exception as e:
+    st.error("Error obteniendo rol:")
+    st.exception(e)
 
 # -----------------------------
 # INTERFAZ
