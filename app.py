@@ -40,6 +40,8 @@ peso = st.number_input(
 # GUARDAR
 # -----------------------------
 
+st.write("Supabase conectado correctamente")
+
 if st.button("Guardar"):
 
     fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
