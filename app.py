@@ -12,7 +12,11 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
-zonas_horarias = {
+# -----------------------------
+# ZONAS HORARIAS
+# -----------------------------
+
+ZONAS_HORARIAS = {
     "Beaumont": "America/Chicago",
     "California": "America/Los_Angeles",
     "Florida": "America/New_York",
@@ -105,20 +109,32 @@ peso = st.number_input(
 
 if st.button("Guardar Registro"):
 
-    zona_horaria = zona_horarias[planta]
-    
-    fecha_hora = datetime.now(
-        ZoneInfo(zona_horaria)
-    ).strftime("%Y-%m-%d %H:%M:%S")
-    
-    result = supabase.table("pruebas").insert({
-        "planta": planta,
-        "maquina": maquina,
-        "nombre": nombre,
-        "producto": producto,
-        "turno": turno,
-        "peso": peso,
-        "fecha_hora": fecha_hora
-    }).execute()
+    if planta == "Selecciona una planta...":
+        st.error("Selecciona una planta.")
+    elif maquina == "Selecciona una maquina...":
+        st.error("Selecciona una maquina.")
+    elif producto == "Selecciona un producto...":
+        st.error("Selecciona un producto.")
+    elif nombre.strip() == "":
+        st.error("Ingresa el nombre del operador.")
+    elif peso <= 0:
+        st.error("Ingresa un peso válido.")
+    else:
 
-    st.success("Registros Guardados")
+        zona_horaria = ZONAS_HORARIAS[planta]
+
+        fecha_hora = datetime.now(
+            ZoneInfo(zona_horaria)
+        ).strftime("%Y-%m-%d %H:%M:%S")
+
+        result = supabase.table("pruebas").insert({
+            "planta": planta,
+            "maquina": maquina,
+            "nombre": nombre,
+            "producto": producto,
+            "turno": turno,
+            "peso": peso,
+            "fecha_hora": fecha_hora
+        }).execute()
+
+        st.success("Registro guardado correctamente")
