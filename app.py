@@ -18,7 +18,7 @@ supabase = create_client(
 
 st.title("Registro de Pruebas")
 
-planta = st.selectbox("Planta:", ["Beaumont", "California", "Florida", "Illinois", "Pennsylvania"])
+planta = st.selectbox("Planta:", ["Selecciona una planta...", "Beaumont", "California", "Florida", "Illinois", "Pennsylvania"])
 
 if planta == "California":
     maquina = st.selectbox("Maquina: ", ["SCHNELL", "TURIA", "EVG", "WD01", "WD02", "MEP", "Otros"])
@@ -57,23 +57,23 @@ elif planta == "Pennsylvania":
     else:
         producto = st.text_input("Producto:")
 elif planta == "Illinois":
-    maquina = st.radio("Maquina: ", ["EVG", "MEP", "Otros"])
+    maquina = st.selectbox("Maquina: ", ["EVG", "MEP", "Otros"])
     if maquina == "EVG":
-        producto = st.radio("Producto:", ["4/4 C10 4.8 x 15", "4/4 C10 5 x 16", "4/4 C10 5 x 18", "4/4 C10 7 x 13", "4/4 C8 5 x 16", "4/4 C8 7 x 13", "4/6 C10 4.8 x 15", "C4 4/4 8 x 15", "C4 4/4 8 x 20", "C4 8 x 15", "C4 8 x 20", "C6 4/4 68 X 260-S", "C6 4/4 8 x 15", "C6 4/4 8 x 20", "C6 8 x 12.5", "C6 8 x 15","C6 8 x 20", "C6.5 4/4 5'8 x 17'", "C8  4/4 5 x 18", "C8 4/4 4.8 x 15", "C8 4/4 5 x 10", "C8 4/4 5 x 16", "C8 4/4 5 x 16-S", "C8 4/4 5 x 18", "C8 4/4 5.8 x 17", "C8 4/4 56 x 15-S", "C8 4/4 7 x 13", "C8 4/4/2 56 x 10", "C8 4x4 8 X 20", "C8 8 x 12.5", "C8 8 x 15", "C8 8 x 20", "C10  4/4 5 x 18", "C10  42 x 84 FC", "C10 4 x 8", "C10 4/4 4.8 x 15", "C10 4/4 4.8 x 15-S", "C10 4/4 5 x 16", "C10 4/4 5 x 16-S", "C10 4/4 5 x 18", "C10 4/4 5 x 18-S", "C10 4/4 52 x 15", "C10 4/4 52 x 15-S", "C10 4/4 7 x 13", "C10 4/4/2 56 x 10", "C10 4/6 4.8 x 15", "C10 4/6 4.8 x 16", "C10 4/6 5 X 14-S", "C10 4/6 56 X 15-S", "C10 42 x 84 FC", "C10 5 x 10", "C10 8 x 15", "C10 8 x 20"])
+        producto = st.selectbox("Producto:", ["4/4 C10 4.8 x 15", "4/4 C10 5 x 16", "4/4 C10 5 x 18", "4/4 C10 7 x 13", "4/4 C8 5 x 16", "4/4 C8 7 x 13", "4/6 C10 4.8 x 15", "C4 4/4 8 x 15", "C4 4/4 8 x 20", "C4 8 x 15", "C4 8 x 20", "C6 4/4 68 X 260-S", "C6 4/4 8 x 15", "C6 4/4 8 x 20", "C6 8 x 12.5", "C6 8 x 15","C6 8 x 20", "C6.5 4/4 5'8 x 17'", "C8  4/4 5 x 18", "C8 4/4 4.8 x 15", "C8 4/4 5 x 10", "C8 4/4 5 x 16", "C8 4/4 5 x 16-S", "C8 4/4 5 x 18", "C8 4/4 5.8 x 17", "C8 4/4 56 x 15-S", "C8 4/4 7 x 13", "C8 4/4/2 56 x 10", "C8 4x4 8 X 20", "C8 8 x 12.5", "C8 8 x 15", "C8 8 x 20", "C10  4/4 5 x 18", "C10  42 x 84 FC", "C10 4 x 8", "C10 4/4 4.8 x 15", "C10 4/4 4.8 x 15-S", "C10 4/4 5 x 16", "C10 4/4 5 x 16-S", "C10 4/4 5 x 18", "C10 4/4 5 x 18-S", "C10 4/4 52 x 15", "C10 4/4 52 x 15-S", "C10 4/4 7 x 13", "C10 4/4/2 56 x 10", "C10 4/6 4.8 x 15", "C10 4/6 4.8 x 16", "C10 4/6 5 X 14-S", "C10 4/6 56 X 15-S", "C10 42 x 84 FC", "C10 5 x 10", "C10 8 x 15", "C10 8 x 20"])
     elif maquina == "MEP":
-        producto = st.radio("Producto:", ["C6 8 x 12.5", "C6 8 x 15", "C6 8 x 20", "C8 8 x 12.5", "C8 8 x 15", "C8 8 x 20", "C10  4 x 8", "C10  5 x 150", "C10  5 x 50", "C10 4 x 8", "C10 4 x 8 FC", "C10 5 x 144", "C10 5 x 150", "C10 5 x 50", "C10 8 x 12.5", "C10 8 x 15", "C10 8 x 20"])
+        producto = st.selectbox("Producto:", ["C6 8 x 12.5", "C6 8 x 15", "C6 8 x 20", "C8 8 x 12.5", "C8 8 x 15", "C8 8 x 20", "C10  4 x 8", "C10  5 x 150", "C10  5 x 50", "C10 4 x 8", "C10 4 x 8 FC", "C10 5 x 144", "C10 5 x 150", "C10 5 x 50", "C10 8 x 12.5", "C10 8 x 15", "C10 8 x 20"])
     else:
         producto = st.text_input("Producto:")
 elif planta == "Florida":
-    maquina = st.radio("Maquina: ", ["KOCH", "KOCH2", "MEP1", "MEP2", "PITTINI", "PITTINI2", "TEUREMA", "TURIA", "Otros"])
+    maquina = st.selectbox("Maquina: ", ["KOCH", "KOCH2", "MEP1", "MEP2", "PITTINI", "PITTINI2", "TEUREMA", "TURIA", "Otros"])
     if maquina == "KOCH" or maquina == "PITTINI2":
-        producto = st.radio("Producto:", ["BB Deformed Positive Wire 0.375 1018", "Bright Basic Deformed Posit 0.5000 1018", "Bright Basic_.244_ASTM A 1064 W-4.7", "Brigth Basic_.250_ASTM A 1064 W-4.9", "DeformedPositiveWire _.625_A1064 D-30.7"])
+        producto = st.selectbox("Producto:", ["BB Deformed Positive Wire 0.375 1018", "Bright Basic Deformed Posit 0.5000 1018", "Bright Basic_.244_ASTM A 1064 W-4.7", "Brigth Basic_.250_ASTM A 1064 W-4.9", "DeformedPositiveWire _.625_A1064 D-30.7"])
     elif maquina == "KOCH2" or maquina == "PITTINI" or maquina == "TEUREMA" or maquina == "TURIA":
-        producto = st.radio("Producto:", ["C3", "C4", "C6", "C8", "C10", "C10.5"])
+        producto = st.selectbox("Producto:", ["C3", "C4", "C6", "C8", "C10", "C10.5"])
     elif maquina == "MEP1":
-        producto = st.radio("Producto:", ["5 x 150  6 GA", "C10 5 x 150", "C10 5 x 200", "C10 5 x 50", "C10 6 x 150", "C10.5 5 x 150"])
+        producto = st.selectbox("Producto:", ["5 x 150  6 GA", "C10 5 x 150", "C10 5 x 200", "C10 5 x 50", "C10 6 x 150", "C10.5 5 x 150"])
     elif maquina == "MEP2":
-        producto = st.radio("Producto:", ["4/4 8 x 15  4 GA", "4/4 8 x 20  6 GA", "5 x 10  10 GA", "5 x 10  6 GA", "6x12 D2.9/D2.1 7'10x25'", "6x12 D2.9/D2.1 7'10x31'", "6x6 D3/D3 8'4x11'10 4 GA", "8 x 15  4 GA", "C4 4/4 8 x 20", "C4 8 x 20", "C6  8 x 20", "C6 3.5 x 20", "C6 4/4 8 x 20", "C6 8 x 15", "C6 8 x 20", "C8 8 x 20", "C10 42 x 84 FC", "C10 5 x 10", "C10 8 x 12.5", "C10 8 x 15", "C10 8 x 20"])
+        producto = st.selectbox("Producto:", ["4/4 8 x 15  4 GA", "4/4 8 x 20  6 GA", "5 x 10  10 GA", "5 x 10  6 GA", "6x12 D2.9/D2.1 7'10x25'", "6x12 D2.9/D2.1 7'10x31'", "6x6 D3/D3 8'4x11'10 4 GA", "8 x 15  4 GA", "C4 4/4 8 x 20", "C4 8 x 20", "C6  8 x 20", "C6 3.5 x 20", "C6 4/4 8 x 20", "C6 8 x 15", "C6 8 x 20", "C8 8 x 20", "C10 42 x 84 FC", "C10 5 x 10", "C10 8 x 12.5", "C10 8 x 15", "C10 8 x 20"])
     else:
         producto = st.text_input("Producto:")
 
