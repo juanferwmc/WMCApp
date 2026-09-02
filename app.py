@@ -28,7 +28,7 @@ ZONAS_HORARIAS = {
 # INTERFAZ
 # -----------------------------
 
-st.title("Registro de Pruebas")
+st.title("Registro de Peso de Alambres")
 
 planta = st.selectbox("Planta:", ["Selecciona una planta...", "Beaumont", "California", "Florida", "Illinois", "Pennsylvania"])
 
