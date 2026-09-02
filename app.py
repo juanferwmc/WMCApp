@@ -18,7 +18,7 @@ supabase = create_client(
 
 st.title("Registro de Pruebas")
 
-planta = st.radio("Planta:", ["Beaumont", "California", "Florida", "Illinois", "Pennsylvania"])
+planta = st.selectbox("Planta:", ["Beaumont", "California", "Florida", "Illinois", "Pennsylvania"])
 
 if planta == "California":
     maquina = st.radio("Maquina: ", ["SCHNELL", "TURIA", "EVG", "WD01", "WD02", "MEP", "Otros"])
