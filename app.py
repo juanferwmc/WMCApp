@@ -12,6 +12,14 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
+zonas_horarias = {
+    "Beaumont": "America/Chicago",
+    "California": "America/Los_Angeles",
+    "Florida": "America/New_York",
+    "Illinois": "America/Chicago",
+    "Pennsylvania": "America/New_York"
+}
+
 # -----------------------------
 # INTERFAZ
 # -----------------------------
@@ -94,14 +102,6 @@ peso = st.number_input(
 # -----------------------------
 # GUARDAR
 # -----------------------------
-
-zonas_horarias = {
-    "Beaumont": "America/Chicago",
-    "California": "America/Los_Angeles",
-    "Florida": "America/New_York",
-    "Illinois": "America/Chicago",
-    "Pennsylvania": "America/New_York"
-}
 
 if st.button("Guardar Registro"):
 
