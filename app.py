@@ -108,7 +108,7 @@ if st.button("Guardar Registro"):
         "producto": producto,
         "turno": turno,
         "peso": peso,
-        "fecha_hora": datetime.now().isoformat()
+        "fecha_hora": fecha_hora
     }).execute()
 
     st.success("Registros Guardados")
