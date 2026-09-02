@@ -95,10 +95,20 @@ peso = st.number_input(
 # GUARDAR
 # -----------------------------
 
+zonas_horarias = {
+    "Beaumont": "America/Chicago",
+    "California": "America/Los_Angeles",
+    "Florida": "America/New_York",
+    "Illinois": "America/Chicago",
+    "Pennsylvania": "America/New_York"
+}
+
 if st.button("Guardar Registro"):
 
+    zona_horaria = zona_horarias[planta]
+    
     fecha_hora = datetime.now(
-        ZoneInfo("America/Chicago")
+        ZoneInfo(zona_horaria)
     ).strftime("%Y-%m-%d %H:%M:%S")
     
     result = supabase.table("pruebas").insert({
