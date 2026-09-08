@@ -143,8 +143,6 @@ if st.button("Guardar Registro"):
         st.error("Selecciona un producto.")
     elif nombre.strip() == "":
         st.error("Ingresa el nombre del operador.")
-    elif peso <= 0:
-        st.error("Ingresa un peso válido.")
     else:
 
         result = supabase.table("pruebas").insert({
