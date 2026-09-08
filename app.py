@@ -154,7 +154,7 @@ if st.button("Guardar Registro"):
             "producto": producto,
             "turno": turno,
             "peso": peso,
-            "fecha_y_hora": fecha_y_hora
+            "fecha_hora": fecha_y_hora
         }).execute()
 
         st.success("Registro guardado correctamente")
