@@ -13,18 +13,6 @@ supabase = create_client(
 )
 
 # -----------------------------
-# ZONAS HORARIAS
-# -----------------------------
-
-ZONAS_HORARIAS = {
-    "Beaumont": "America/Chicago",
-    "California": "America/Los_Angeles",
-    "Florida": "America/New_York",
-    "Illinois": "America/Chicago",
-    "Pennsylvania": "America/New_York"
-}
-
-# -----------------------------
 # INTERFAZ
 # -----------------------------
 
@@ -159,12 +147,6 @@ if st.button("Guardar Registro"):
         st.error("Ingresa un peso válido.")
     else:
 
-        zona_horaria = ZONAS_HORARIAS[planta]
-
-        fecha_hora = datetime.now(
-            ZoneInfo(zona_horaria)
-        ).strftime("%Y-%m-%d %H:%M:%S")
-
         result = supabase.table("pruebas").insert({
             "planta": planta,
             "maquina": maquina,
@@ -172,7 +154,6 @@ if st.button("Guardar Registro"):
             "producto": producto,
             "turno": turno,
             "peso": peso,
-            "fecha_hora": fecha_hora,
             "fecha_y_hora": fecha_y_hora
         }).execute()
 
