@@ -138,6 +138,8 @@ peso = st.number_input(
     min_value=0.0
 )
 
+fecha_y_hora = st.datetime_input("Fecha y Hora:")
+
 
 # -----------------------------
 # GUARDAR
@@ -170,7 +172,8 @@ if st.button("Guardar Registro"):
             "producto": producto,
             "turno": turno,
             "peso": peso,
-            "fecha_hora": fecha_hora
+            "fecha_hora": fecha_hora,
+            "fecha_y_hora": fecha_y_hora
         }).execute()
 
         st.success("Registro guardado correctamente")
